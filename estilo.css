@@ -1,0 +1,6 @@
+#imagen1{
+    display: block;
+}
+#imagen2, #imagen3, #imagen4{
+    display: none;
+}
