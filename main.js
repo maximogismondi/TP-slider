@@ -1,0 +1,1 @@
+consele.log("Hola amigos");
