@@ -2,26 +2,18 @@
 <html>
 <head>
 	<script src="jquery123.js"></script>
-	<title>JAJA</title>
+	<script src="tp.js"></script>
+	<title>Prueba Carrusel</title>
 </head>
 <body>
-<div id = "Prueba">
+<div id = "Carrusel">
 	<img src="1.jpg">
 	<img src="2.jpg">
 	<img src="3.jpg">
 	<img src="4.jpg">
 </div>
 <script>
-$("#Prueba").find('img').each(function(index) {
-	if(index!=0){
-		$(this).css("display","none");
-	}
-
-	
-});
-var button1="<button id='atras'>Atras</button>"
-var button2="<button id='adelante'>Adelante</button>"
-$("#Prueba").after(button1,button2);
+	animar_carrusel(5000, "Carrusel");
 </script>
 </body>
 </html>
