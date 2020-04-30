@@ -12,11 +12,16 @@
 	<img src="4.jpg">
 </div>
 <script>
-$("#Prueba").find('img').each(function(index,) {
-	
-	console.log(index);
-});
+$("#Prueba").find('img').each(function(index) {
+	if(index!=0){
+		$(this).css("display","none");
+	}
 
+	
+});
+var button1="<button id='atras'>Atras</button>"
+var button2="<button id='adelante'>Adelante</button>"
+$("#Prueba").after(button1,button2);
 </script>
 </body>
 </html>
