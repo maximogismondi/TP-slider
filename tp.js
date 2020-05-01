@@ -8,7 +8,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
         clearInterval(intervalo);
         $("#"+id_div).find('img').each(function(index){
             if(index == imagenActual){
-                $(this).animate({marginLeft: '150%'}, 200).delay(200).fadeOut(0);     
+                $(this).animate({marginLeft: '125%'}, 200).delay(200).fadeOut(0);     
             }
         });
         
@@ -25,7 +25,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
         $("#imagenActual").text("" + (imagenActual+1)); 
         $("#"+id_div).find('img').each(function(index) {    
             if(index == imagenActual){
-                $(this).css({marginLeft: '-100%'}).delay(400).fadeIn(0).animate({marginLeft: '0%'},300);
+                $(this).css({marginLeft: '-125%'}).delay(400).fadeIn(0).animate({marginLeft: '0%'},300);
             }
         });
 
@@ -38,7 +38,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
 
         $("#"+id_div).find('img').each(function(index) {
             if(index == imagenActual){
-                $(this).animate({marginLeft: '-100%'}, 200).delay(200).fadeOut(0);     
+                $(this).animate({marginLeft: '-75%'}, 200).delay(200).fadeOut(0);     
             }
         });
 
@@ -52,14 +52,14 @@ function animar_carrusel(milliseconds_carrusel, id_div){
         $("#imagenActual").text("" + (imagenActual+1));    
         $("#"+id_div).find('img').each(function(index) {
             if(index == imagenActual){
-                $(this).css({marginLeft: '150%'}).delay(400).fadeIn(0).animate({marginLeft: '0%'},300);
+                $(this).css({marginLeft: '125%'}).delay(400).fadeIn(0).animate({marginLeft: '0%'},300);
             }
         });
 
         intervalo = setInterval(cambiarImagenAdelante, 5000);
     }
 
-
+    $("#"+id_div).css({marginLeft: '25%'})
     $("#"+id_div).find('img').each(function(index) {
         if(index!=0){
             $(this).css("display","none");            
