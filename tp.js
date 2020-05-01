@@ -14,12 +14,15 @@ function animar_carrusel(milliseconds_carrusel, id_div){
         
         if (imagenActual == 3) {
             imagenActual = 0;
+
+
         }
         
         else{
+
             imagenActual++;
         }
-
+        $("#imagenActual").text("" + (imagenActual+1)); 
         $("#"+id_div).find('img').each(function(index) {    
             if(index == imagenActual){
                 $(this).css({marginLeft: '-100%'}).delay(400).fadeIn(0).animate({marginLeft: '0%'},300);
@@ -44,8 +47,9 @@ function animar_carrusel(milliseconds_carrusel, id_div){
         }
         else{
             imagenActual--;
-        }
 
+        }
+        $("#imagenActual").text("" + (imagenActual+1));    
         $("#"+id_div).find('img').each(function(index) {
             if(index == imagenActual){
                 $(this).css({marginLeft: '150%'}).delay(400).fadeIn(0).animate({marginLeft: '0%'},300);
@@ -55,17 +59,23 @@ function animar_carrusel(milliseconds_carrusel, id_div){
         intervalo = setInterval(cambiarImagenAdelante, 5000);
     }
 
+
     $("#"+id_div).find('img').each(function(index) {
         if(index!=0){
-            $(this).css("display","none");
+            $(this).css("display","none");            
+
+
+
         }
     });
 
-    var button1="<button id='atras'>Atras</button>"
-    var button2="<button id='adelante'>Adelante</button>"
-    var textoImagenActual="<label>Imagen actual: </label>"
+    var button1="<button id='atras'>Atras</button>";
+    var button2="<button id='adelante'>Adelante</button>";
+    var textoImagenActual="<label>Imagen actual: </label>";
+    var NumeroImagenActual="<label id='imagenActual'>1</label>"
 
-    $("#"+id_div).after(button1,button2, textoImagenActual);
+
+    $("#"+id_div).after(button1,button2, textoImagenActual,NumeroImagenActual);
 
     $("#atras").click(cambiarImagenAtras);
     $("#adelante").click(cambiarImagenAdelante);
