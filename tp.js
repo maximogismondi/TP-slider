@@ -74,8 +74,9 @@ function animar_carrusel(milliseconds_carrusel, id_div){
     var textoImagenActual="<label>Imagen actual: </label>";
     var NumeroImagenActual="<label id='imagenActual'>1</label>"
 
-
-    $("#"+id_div).after(button1,button2, textoImagenActual,NumeroImagenActual);
+    $("#"+id_div).prepend(button1);
+    $("#"+id_div).append(button2);
+    $("#"+id_div).after(textoImagenActual,NumeroImagenActual);
 
     $("#atras").click(cambiarImagenAtras);
     $("#adelante").click(cambiarImagenAdelante);
