@@ -87,6 +87,9 @@ function animar_carrusel(milliseconds_carrusel, id_div){
     $("#ciculo4").css({marginLeft: '0.7%'});
     $("#adelante").css({marginLeft: '22.2%'});
 
+    $("#"+id_div).prepend(button1);
+    $("#"+id_div).append(button2);
+    $("#"+id_div).after(textoImagenActual,NumeroImagenActual);
 
     $("#atras").click(cambiarImagenAtras);
     $("#adelante").click(cambiarImagenAdelante);
