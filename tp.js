@@ -63,13 +63,15 @@ function animar_carrusel(milliseconds_carrusel, id_div){
         }
     });
 
-    var button1 = "<button id='atras'><</button>";
-    var button2 = "<button id='adelante'>></button>";
-    var numeroImagenActual = "<label id='imagenActual'>1</label>";
-    var ciculo1 ="<div id='circulo1'></div><style>#circulo{background: black;width:10px;height:10px; border-radius:50%;border: solid 50% black;}</style>";
-    var ciculo2 ="<div id='circulo2'></div><style>#circulo{background: white;width:1%;height:1%; border-radius:50%;border: solid 0.1% black;overflow:hidden;}</style>";
-    var ciculo3 ="<div id='circulo3'></div><style>#circulo{background: white;width:1%;height:1%; border-radius:50%;border: solid 0.1% black;overflow:hidden;}</style>";
-    var ciculo4 ="<div id='circulo4'></div><style>#circulo{background: white;width:1%;height:1%; border-radius:50%;border: solid 0.1% black;overflow:hidden;}</style>";
+    var conjuntoCirculos="<div id=barraDeCirculosYBotones display: inline>"+
+    "<button id='atras'><</button>"+
+    "<div id='circulo1' style='background: green;width:1%;height:1%; border-radius:50%;border: solid  green;float: left';></div>"+
+    "<div id='circulo2' style='background: black;width:1%;height:1%; border-radius:50%;border: solid  black;float: left';></div>"+
+    "<div id='circulo3' style='background: black;width:1%;height:1%; border-radius:50%;border: solid  black;float: left';></div>"+
+    "<div id='circulo4' style='background: black;width:1%;height:1%; border-radius:50%;border: solid  black;float: left';></div>"+
+    "<button id='adelante'>></button>"+
+    "</div>";
+
     var cantImagenes = 0;
 
     $("#"+id_div).find('img').each(function(index) {
@@ -77,19 +79,19 @@ function animar_carrusel(milliseconds_carrusel, id_div){
             cantImagenes++;
         }
     });    
-    $("#"+id_div).after(button1,ciculo1,ciculo2,ciculo3,ciculo4,button2);
-
+    $("#"+id_div).after(barraDeCirculosYBotones);
+    //document.getElementById('id').className = **; //Para cambiarle la clase a un circulo
     $("#"+id_div).css({marginLeft: '16%'});
-    $("#atras").css({marginLeft: '23%'});
-    $("#ciculo1").css({marginLeft: '22.2%'});
-    $("#ciculo2").css({marginLeft: '0.7%'});
-    $("#ciculo3").css({marginLeft: '0.7%'});
-    $("#ciculo4").css({marginLeft: '0.7%'});
-    $("#adelante").css({marginLeft: '22.2%'});
+    //$("#atras").css({marginLeft: '23%'});
+    //$("#ciculo1").css({marginLeft: '22.2%'});
+    //$("#ciculo2").css({marginLeft: '0.7%'});
+    //$("#ciculo3").css({marginLeft: '0.7%'});
+    //$("#ciculo4").css({marginLeft: '0.7%'});
+    //("#adelante").css({marginLeft: '22.2%'});
 
-    $("#"+id_div).prepend(button1);
-    $("#"+id_div).append(button2);
-    $("#"+id_div).after(textoImagenActual,NumeroImagenActual);
+    //$("#"+id_div).prepend(button1);
+    //$("#"+id_div).append(button2);
+    //$("#"+id_div).after(textoImagenActual,NumeroImagenActual);
 
     $("#atras").click(cambiarImagenAtras);
     $("#adelante").click(cambiarImagenAdelante);
