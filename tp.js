@@ -8,7 +8,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
         clearInterval(intervalo);
         $("#"+id_div).find('img').each(function(index){
             if(index == imagenActual){
-                $(this).animate({marginLeft: '125%'}, 200).delay(200).fadeOut(0);     
+                $(this).fadeOut(300);     
             }
         });
 
@@ -25,7 +25,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
         $("#imagenActual").text("" + (imagenActual+1)); 
         $("#"+id_div).find('img').each(function(index) {    
             if(index == imagenActual){
-                $(this).css({marginLeft: '-125%'}).delay(400).fadeIn(0).animate({marginLeft: '0%'},300);
+                $(this).delay(300).fadeIn(300);
             }
         });
 
@@ -40,7 +40,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
 
         $("#"+id_div).find('img').each(function(index) {
             if(index == imagenActual){
-                $(this).animate({marginLeft: '-75%'}, 200).delay(200).fadeOut(0);     
+                $(this).fadeOut(300);     
             }
         });
 
@@ -56,7 +56,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
         $("#imagenActual").text("" + (imagenActual+1));    
         $("#"+id_div).find('img').each(function(index) {
             if(index == imagenActual){
-                $(this).css({marginLeft: '125%'}).delay(400).fadeIn(0).animate({marginLeft: '0%'},300);
+                $(this).delay(300).fadeIn(100);
             }
         });
 
@@ -65,29 +65,33 @@ function animar_carrusel(milliseconds_carrusel, id_div){
         intervalo = setInterval(cambiarImagenAdelante, 5000);
     }
 
+    var arregloCirculos;
+
     $("#"+id_div).find('img').each(function(index) {
+            
+
+
         if(index!=0){
             $(this).css("display","none");
         }
     });
 
     var barraDeCirculosYBotones="<div class='barraDeCirculosYBotones'>"+
-    "<button id='atras'><</button>"+
-    "<div id='circulo1' class='circulo'></div>"+
-    "<div id='circulo2' class='circulo'></div>"+
-    "<div id='circulo3' class='circulo'></div>"+
-    "<div id='circulo4' class='circulo'></div>"+
-    "<button id='adelante'>></button>"+
-    "</div>";
-
+    "<button id='atras'><</button>";
 
     var cantImagenes = 0;
 
     $("#"+id_div).find('img').each(function(index) {
+        
+        barraDeCirculosYBotones = barraDeCirculosYBotones + "<div id='circulo"+(index+1)+"' class='circulo'></div>";
+
         if(index > cantImagenes){
             cantImagenes++;
         }
     });    
+
+    barraDeCirculosYBotones = barraDeCirculosYBotones + "<button id='adelante'>></button>"+"</div>";
+
     $("#"+id_div).after(barraDeCirculosYBotones);
     $("#circulo"+(imagenActual+1)).css('background','red');
     $("#"+id_div).css({marginLeft: '26%'});
