@@ -8,7 +8,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
         clearInterval(intervalo);
         $("#"+id_div).find('img').each(function(index){
             if(index == imagenActual){
-                $(this).fadeOut(300);     
+                $(this).fadeOut(200);     
             }
         });
 
@@ -25,7 +25,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
         $("#imagenActual").text("" + (imagenActual+1)); 
         $("#"+id_div).find('img').each(function(index) {    
             if(index == imagenActual){
-                $(this).delay(300).fadeIn(300);
+                $(this).delay(200).fadeIn(200);
             }
         });
 
@@ -40,7 +40,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
 
         $("#"+id_div).find('img').each(function(index) {
             if(index == imagenActual){
-                $(this).fadeOut(300);     
+                $(this).fadeOut(200);     
             }
         });
 
@@ -56,7 +56,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
         $("#imagenActual").text("" + (imagenActual+1));    
         $("#"+id_div).find('img').each(function(index) {
             if(index == imagenActual){
-                $(this).delay(300).fadeIn(100);
+                $(this).delay(200).fadeIn(200);
             }
         });
 
@@ -94,13 +94,15 @@ function animar_carrusel(milliseconds_carrusel, id_div){
 
     $("#"+id_div).after(barraDeCirculosYBotones);
     $("#circulo"+(imagenActual+1)).css('background','red');
-    $("#"+id_div).css({marginLeft: '26%'});
-    $("#atras").css({marginLeft: '26.5%'});
-    $("#circulo1").css({marginLeft: '20%'});
-    $("#circulo2").css({marginLeft: '0.7%'});
-    $("#circulo3").css({marginLeft: '0.7%'});
-    $("#circulo4").css({marginLeft: '0.7%'});
-    $("#adelante").css({marginLeft: '20%'});
+    $("#"+id_div).css({marginLeft: '16%'});
+    $("#atras").css({marginLeft: '18%'});
+    $("#circulo1").css({marginLeft: (30-(1*cantImagenes))+'%'});
+    
+    for (var i = 2; i < cantImagenes+2; i++) {
+        $("#circulo"+i).css({marginLeft: '1.5%'});
+    };
+
+    $("#adelante").css({marginLeft: (30-(1*cantImagenes))+'%'});
 
     //document.getElementById('id').className = **; //Para cambiarle la clase a un circulo
 
