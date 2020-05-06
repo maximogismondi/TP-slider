@@ -1,10 +1,11 @@
 	.circulo {
-		width: 0.5%;
-		padding-top: 0.5%;
+		width: 1%;
+		padding-top: 1%;
 		border-radius: 50%;
 		background: white;
 		display: inline-block;
 	}
 	.barraDeCirculosYBotones {
-		margin-top: -3%;
+		margin-top: -3.5%;
+		
 	}

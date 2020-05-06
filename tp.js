@@ -66,11 +66,10 @@ function animar_carrusel(milliseconds_carrusel, id_div){
     }
 
     var arregloCirculos;
-
+    var ancho;
     $("#"+id_div).find('img').each(function(index) {
             
-
-
+         ancho=$(this).width();
         if(index!=0){
             $(this).css("display","none");
         }
@@ -89,24 +88,27 @@ function animar_carrusel(milliseconds_carrusel, id_div){
             cantImagenes++;
         }
     });    
-
     barraDeCirculosYBotones = barraDeCirculosYBotones + "<button id='adelante'>></button>"+"</div>";
 
-    $("#"+id_div).after(barraDeCirculosYBotones);
+    var NombreId=document.getElementById(id_div);
+    NombreId.innerHTML += barraDeCirculosYBotones;
     $("#circulo"+(imagenActual+1)).css('background','red');
-    $("#"+id_div).css({marginLeft: '16%'});
-    $("#atras").css({marginLeft: '18%'});
-    $("#circulo1").css({marginLeft: (30-(1*cantImagenes))+'%'});
+    $("#"+id_div).css({"margin":"4% auto","width":ancho,"display":"block"});
+    $("#atras").css({marginLeft: '1%'});
+    $("#circulo1").css({marginLeft: (57-(2.5*(cantImagenes+1)))+'%'});
+    console.log((57-(2.5*(cantImagenes+1)))+'%');
     
     for (var i = 2; i < cantImagenes+2; i++) {
         $("#circulo"+i).css({marginLeft: '1.5%'});
     };
 
-    $("#adelante").css({marginLeft: (30-(1*cantImagenes))+'%'});
+    $("#adelante").css({marginLeft: (57-(2.5*(cantImagenes+1)))+'%'});
 
-    //document.getElementById('id').className = **; //Para cambiarle la clase a un circulo
 
     $("#atras").click(cambiarImagenAtras);
     $("#adelante").click(cambiarImagenAdelante);
+
+
+
 
 }
