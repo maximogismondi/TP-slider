@@ -1,11 +1,21 @@
-	.circulo {
-		width: 1%;
-		padding-top: 1%;
-		border-radius: 50%;
-		background: white;
-		display: inline-block;
-	}
-	.barraDeCirculosYBotones {
-		margin-top: -3.5%;
-		
-	}
+.circulo {
+	width: 1%;
+	padding-top: 1%;
+	border-radius: 50%;
+	background: lightgrey;
+	display: inline-block;
+}
+.barraDeCirculosYBotones {
+	margin-top: -3.5%;
+}
+#miProgreso {
+  width: 100%;
+  background-color: lightgrey;
+}
+
+#miBarra {
+  width: 1%;
+  height: 30px;
+  background-color: red;
+  margin-top: 0.5%;
+}

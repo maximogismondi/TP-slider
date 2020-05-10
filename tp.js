@@ -1,10 +1,34 @@
 function animar_carrusel(milliseconds_carrusel, id_div){
 
     var imagenActual = 0;
+    var indice = 0;
     var intervalo = setInterval(cambiarImagenAdelante, milliseconds_carrusel);
+    var id = setInterval(animarBarra,0);
+
+
+    function animarBarra() {
+    if (indice == 0) {
+    indice = 1;
+    var elem = document.getElementById("miBarra");
+    var width = 0;
+    id = setInterval(frame, milliseconds_carrusel/1000);
+        function frame() {
+        if (width >= 100) {
+            clearInterval(id);
+             indice = 0;
+        } 
+        else {
+            width=width+0.1;
+            elem.style.width = width + "%";
+    }
+}
+  }
+}
 
     function cambiarImagenAdelante(){
-    
+        indice = 0;
+        clearInterval(id);
+        animarBarra();
         clearInterval(intervalo);
         $("#"+id_div).find('img').each(function(index){
             if(index == imagenActual){
@@ -12,7 +36,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
             }
         });
 
-        $("#circulo"+(imagenActual+1)).css('background','white');
+        $("#circulo"+(imagenActual+1)).css('background','lightgrey');
 
         if (imagenActual == cantImagenes) {
             imagenActual = 0;
@@ -31,11 +55,13 @@ function animar_carrusel(milliseconds_carrusel, id_div){
 
         $("#circulo"+(imagenActual+1)).css('background','red');
 
-        intervalo = setInterval(cambiarImagenAdelante, 5000);
+        intervalo = setInterval(cambiarImagenAdelante, milliseconds_carrusel);
     }
 
     function cambiarImagenAtras(){
-
+        indice = 0;
+        clearInterval(id);
+        animarBarra();
         clearInterval(intervalo);
 
         $("#"+id_div).find('img').each(function(index) {
@@ -44,7 +70,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
             }
         });
 
-        $("#circulo"+(imagenActual+1)).css('background','white');
+        $("#circulo"+(imagenActual+1)).css('background','lightgrey');
 
         if (imagenActual == 0) {
             imagenActual = cantImagenes;
@@ -62,8 +88,9 @@ function animar_carrusel(milliseconds_carrusel, id_div){
 
         $("#circulo"+(imagenActual+1)).css('background','red');
 
-        intervalo = setInterval(cambiarImagenAdelante, 5000);
+        intervalo = setInterval(cambiarImagenAdelante, milliseconds_carrusel);
     }
+
 
     var arregloCirculos;
     var ancho;
@@ -76,7 +103,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
     });
 
     var barraDeCirculosYBotones="<div class='barraDeCirculosYBotones'>"+
-    "<button id='atras'><</button>"+"<div id='circulos'>";
+    "<button id='atras'><</button>";
 
     var cantImagenes = 0;
 
@@ -88,27 +115,31 @@ function animar_carrusel(milliseconds_carrusel, id_div){
             cantImagenes++;
         }
     });    
-    barraDeCirculosYBotones = barraDeCirculosYBotones +"</div>"+ "<button id='adelante'>></button>"+"</div>";
+    barraDeCirculosYBotones = barraDeCirculosYBotones + "<button id='adelante'>></button>"+"</div>";
+
+    var barraDeProgreso="<div id='miProgreso'><div id='miBarra'></div></div>";
 
     var NombreId=document.getElementById(id_div);
     NombreId.innerHTML += barraDeCirculosYBotones;
-    $("#circulos").css({"margin":"0% auto"});
+    NombreId.innerHTML += barraDeProgreso;
+
+
     $("#circulo"+(imagenActual+1)).css('background','red');
     $("#"+id_div).css({"margin":"4% auto","width":ancho,"display":"block"});
-    $("#atras").css({marginLeft: '1%'});
+    $("#atras").css({marginLeft: '1%',});
 
     
     for (var i = 2; i < cantImagenes+2; i++) {
         console.log("Hola");
-        $("#circulo"+i).css({marginLeft: '1.5%'});
+        $("#circulo"+i).css({marginLeft: '%'});
     };
 
-    $("#adelante").css({marginRight: '1%'});
+    $("#adelante").css({marginLeft: '1%'});
 
 
     $("#atras").click(cambiarImagenAtras);
     $("#adelante").click(cambiarImagenAdelante);
-
+    animarBarra();
 
 
 
