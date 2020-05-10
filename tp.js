@@ -76,7 +76,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
     });
 
     var barraDeCirculosYBotones="<div class='barraDeCirculosYBotones'>"+
-    "<button id='atras'><</button>";
+    "<button id='atras'><</button>"+"<div id='circulos'>";
 
     var cantImagenes = 0;
 
@@ -88,21 +88,22 @@ function animar_carrusel(milliseconds_carrusel, id_div){
             cantImagenes++;
         }
     });    
-    barraDeCirculosYBotones = barraDeCirculosYBotones + "<button id='adelante'>></button>"+"</div>";
+    barraDeCirculosYBotones = barraDeCirculosYBotones +"</div>"+ "<button id='adelante'>></button>"+"</div>";
 
     var NombreId=document.getElementById(id_div);
     NombreId.innerHTML += barraDeCirculosYBotones;
+    $("#circulos").css({"margin":"0% auto"});
     $("#circulo"+(imagenActual+1)).css('background','red');
     $("#"+id_div).css({"margin":"4% auto","width":ancho,"display":"block"});
     $("#atras").css({marginLeft: '1%'});
-    $("#circulo1").css({marginLeft: (57-(2.5*(cantImagenes+1)))+'%'});
-    console.log((57-(2.5*(cantImagenes+1)))+'%');
+
     
     for (var i = 2; i < cantImagenes+2; i++) {
+        console.log("Hola");
         $("#circulo"+i).css({marginLeft: '1.5%'});
     };
 
-    $("#adelante").css({marginLeft: (57-(2.5*(cantImagenes+1)))+'%'});
+    $("#adelante").css({marginRight: '1%'});
 
 
     $("#atras").click(cambiarImagenAtras);
