@@ -49,11 +49,13 @@ function animar_carrusel(milliseconds_carrusel, id_div){
 
             imagenActual++;
         }
+
         $("#"+id_div).find('img').each(function(index) {    
             if(index == imagenActual){
                 $(this).delay(200).fadeIn(200);
             }
         });
+
         console.log(imagenActual);
         $("#circulo"+(imagenActual+1)).css('background','red');
 
@@ -111,7 +113,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
             barraDeCirculosYBotones = barraDeCirculosYBotones + "<div id='circulo"+(index+1)+"'class='circulo1'></div>";
         }
         else{
-            barraDeCirculosYBotones = barraDeCirculosYBotones + "<div id='circulo"+(index+1)+" 'class='circulo2'></div>";
+            barraDeCirculosYBotones = barraDeCirculosYBotones + "<div id='circulo"+(index+1)+"'class='circulo2'></div>";
         } 
         if(index > cantImagenes){
             cantImagenes++;
