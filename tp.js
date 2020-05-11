@@ -2,28 +2,29 @@ function animar_carrusel(milliseconds_carrusel, id_div){
 
     var imagenActual = 0;
     var indice = 0;
+    var cantImagenes = 0;
     var intervalo = setInterval(cambiarImagenAdelante, milliseconds_carrusel);
     var id = setInterval(animarBarra,0);
 
 
-    function animarBarra() {
-    if (indice == 0) {
-    indice = 1;
-    var elem = document.getElementById("miBarra");
-    var width = 0;
-    id = setInterval(frame, milliseconds_carrusel/1000);
-        function frame() {
-        if (width >= 100) {
-            clearInterval(id);
-             indice = 0;
-        } 
-        else {
-            width=width+0.1;
-            elem.style.width = width + "%";
-    }
-}
-  }
-}
+    function animarBarra(){
+	    if (indice == 0) {
+	    indice = 1;
+	    var elem = document.getElementById("miBarra");
+	    var width = 0;
+	    id = setInterval(frame, milliseconds_carrusel/1000);
+	        function frame() {
+		        if (width >= 100) {
+		            clearInterval(id);
+		             indice = 0;
+		        } 
+		        else {
+		            width=width+0.1;
+		            elem.style.width = width + "%";
+		    	}
+			}
+		}	
+	}
 
     function cambiarImagenAdelante(){
         indice = 0;
@@ -103,19 +104,19 @@ function animar_carrusel(milliseconds_carrusel, id_div){
     });
 
     var barraDeCirculosYBotones="<div class='barraDeCirculosYBotones'>"+
-    "<button id='atras'><</button>";
+    "<button id='atras'><</button>"+"<div style='display:inline-block; margin: 0 auto'>";
 
-    var cantImagenes = 0;
 
     $("#"+id_div).find('img').each(function(index) {
         
-        barraDeCirculosYBotones = barraDeCirculosYBotones + "<div id='circulo"+(index+1)+"' class='circulo'></div>";
+        barraDeCirculosYBotones = barraDeCirculosYBotones + "<div id='circulo"+(index+1)+"' class='circulo'; style='float:left'></div>";
 
         if(index > cantImagenes){
             cantImagenes++;
         }
     });    
-    barraDeCirculosYBotones = barraDeCirculosYBotones + "<button id='adelante'>></button>"+"</div>";
+    barraDeCirculosYBotones = barraDeCirculosYBotones + "</div>" + "<button id='adelante'>></button>"+"</div>";
+
 
     var barraDeProgreso="<div id='miProgreso'><div id='miBarra'></div></div>";
 
@@ -126,21 +127,8 @@ function animar_carrusel(milliseconds_carrusel, id_div){
 
     $("#circulo"+(imagenActual+1)).css('background','red');
     $("#"+id_div).css({"margin":"4% auto","width":ancho,"display":"block"});
-    $("#atras").css({marginLeft: '1%',});
-
-    
-    for (var i = 2; i < cantImagenes+2; i++) {
-        console.log("Hola");
-        $("#circulo"+i).css({marginLeft: '%'});
-    };
-
-    $("#adelante").css({marginLeft: '1%'});
-
-
+ 
     $("#atras").click(cambiarImagenAtras);
     $("#adelante").click(cambiarImagenAdelante);
     animarBarra();
-
-
-
 }
