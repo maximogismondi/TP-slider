@@ -14,14 +14,24 @@ function animar_carrusel(milliseconds_carrusel, id_div){
 	    indice = 1;
 	    var elem = document.getElementById("miBarra");
 	    var width = 0;
-	    intervaloBarra = setInterval(frame, milliseconds_carrusel/1000);
+	    if (milliseconds_carrusel>5000) {
+	    	intervaloBarra = setInterval(frame, milliseconds_carrusel/1000);
+	    }
+	    else{
+	    	intervaloBarra = setInterval(frame, milliseconds_carrusel/500);	    	
+	    }
 	        function frame() {
 		        if (width >= 100) {
 		            clearInterval(id);
 		             indice = 0;
 		        } 
 		        else {
-		            width=width+0.1;
+		        	if(milliseconds_carrusel > 5000){
+		        		width=width+0.1;	
+		        	}
+		            else{
+		            	width=width+0.2;		
+		            }
 		            elem.style.width = width + "%";
 		    	}
 			}
