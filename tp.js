@@ -35,7 +35,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
         clearInterval(intervaloImagen);
         $("#"+id_div).find('img').each(function(index){
             if(index == imagenActual){
-                $(this).fadeOut(200);     
+                $(this).css('display','none');
             }
         });
 
@@ -52,7 +52,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
 
         $("#"+id_div).find('img').each(function(index) {    
             if(index == imagenActual){
-                $(this).delay(200).fadeIn(200);
+                $(this).fadeIn("slow");
             }
         });
 
@@ -70,7 +70,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
 
         $("#"+id_div).find('img').each(function(index) {
             if(index == imagenActual){
-                $(this).fadeOut(200);     
+                $(this).css('display','none');
             }
         });
 
@@ -85,7 +85,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
         }  
         $("#"+id_div).find('img').each(function(index) {
             if(index == imagenActual){
-                $(this).delay(200).fadeIn(200);
+                $(this).fadeIn("slow");
             }
         });
         console.log(imagenActual);
@@ -96,8 +96,11 @@ function animar_carrusel(milliseconds_carrusel, id_div){
 
     function OcultarDemasImagenes(){
         $("#"+id_div).find('img').each(function(index) {
-                
-             ancho=$(this).width();
+            
+        	$(this).css('width','910px');
+        	$(this).css('height','607px');
+
+            ancho=$(this).width();
             if(index!=0){
                 $(this).css("display","none");
             }
