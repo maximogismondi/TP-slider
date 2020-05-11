@@ -1,33 +1,71 @@
-.circulo {
-	width: 10px;
-	padding-top: 10px;
-	border-radius: 50%;
-	background: lightgrey;
-	display: inline-block;
-	margin-left: 10px;
+.circulo1 {
+    width: 10px;
+    padding-top: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    background: red;
+    float:left;
 }
-.barraDeCirculosYBotones {
-	bottom: 26px;
-	display: inline-block;
-	width: 100%;
-	position: relative;
-	text-align: center;
+
+.circulo2 {
+    width: 10px;
+    padding-top: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 10px;
+    background: lightgrey;
+    float:left;
 }
+
+#barraCirculos{
+    display:inline-block;
+    margin: -7px auto;
+}
+
+#barraDeCirculosYBotones {
+    bottom: 38px;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
 #miProgreso {
-  	width: 100%;
-  	background-color: lightgrey;
+      width: 100%;
+      background-color: lightgrey;
 }
 
 #miBarra {
-	width: 1%;
-	height: 10px;
-	background-color: red;
-	margin-top: -1%;
-}
-#adelante{
-	float: right;
-}
-#atras{
-	float: left;
+    width: 1%;
+    height: 10px;
+    background-color: red;
+    margin-top: -1%;
 }
 
+#adelante{
+    width: 30px;
+    height: 30px; 
+    float: right;
+    margin-right: 5px;
+    border-radius: 100%;
+    background: lightgrey;
+    border-width: 5px;
+    border-color: red;
+    font-size: 15px;
+    text-align: center;
+    color: red;
+}
+
+#atras{
+    width: 30px;
+    height: 30px; 
+    float: left;
+    margin-left: 5px;
+    border-radius: 100%;
+    background: lightgrey;
+    text-align: center;
+    border-width: 5px;
+    border-color: red;
+    font-size: 15px;
+    color: red;
+}
