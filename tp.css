@@ -54,6 +54,7 @@
     font-size: 15px;
     text-align: center;
     color: red;
+    outline: none;
 }
 
 #atras{
@@ -68,4 +69,5 @@
     border-color: red;
     font-size: 15px;
     color: red;
+    outline: none;
 }

@@ -14,6 +14,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
 	    indice = 1;
 	    var elem = document.getElementById("miBarra");
 	    var width = 0;
+	    var opacity = 0;
 	    if (milliseconds_carrusel>5000) {
 	    	intervaloBarra = setInterval(frame, milliseconds_carrusel/1000);
 	    }
@@ -27,12 +28,15 @@ function animar_carrusel(milliseconds_carrusel, id_div){
 		        } 
 		        else {
 		        	if(milliseconds_carrusel > 5000){
-		        		width=width+0.1;	
+		        		width=width+0.1;
+						opacity=opacity+0.1;
 		        	}
 		            else{
-		            	width=width+0.2;		
+		            	width=width+0.2;
+		            	opacity=opacity+0.2;		
 		            }
 		            elem.style.width = width + "%";
+		            elem.style.opacity = opacity + "%";
 		    	}
 			}
 		}	
