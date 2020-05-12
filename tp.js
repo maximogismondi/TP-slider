@@ -8,6 +8,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
     var intervaloImagen = setInterval(cambiarImagenAdelante, milliseconds_carrusel);
     var intervaloBarra = setInterval(animarBarra,0);
     var ancho;
+    var alto;
 
     function animarBarra(){
 	    if (indice == 0) {
@@ -108,16 +109,22 @@ function animar_carrusel(milliseconds_carrusel, id_div){
         intervaloImagen = setInterval(cambiarImagenAdelante, milliseconds_carrusel);
     }
 
+
     function OcultarDemasImagenes(){
         $("#"+id_div).find('img').each(function(index) {
             
-        	$(this).css('width','910px');
-        	$(this).css('height','607px');
+        	if(index == 0){
+        		ancho=$(this).width();
+    			alto=$(this).height();
+        	}
 
-            ancho=$(this).width();
+        	$(this).css('width', ancho+'px');
+        	$(this).css('height', alto+'px');
+
             if(index!=0){
                 $(this).css("display","none");
             }
+
         });    
     }
 
@@ -130,7 +137,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
             barraDeCirculosYBotones = barraDeCirculosYBotones + "<div id='circulo"+(index+1)+"'class='circulo1'></div>";
         }
         else{
-            barraDeCirculosYBotones = barraDeCirculosYBotones + "<div id='circulo"+(index+1)+"'class='circulo2'></div>";
+            barraDeCirculosYBotones = barraDeCirculosYBotones + "<div id='circulo"+(index+1)+"'class='otrosCirculos'></div>";
         } 
         if(index > cantImagenes){
             cantImagenes++;

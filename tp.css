@@ -7,7 +7,7 @@
     float:left;
 }
 
-.circulo2 {
+.otrosCirculos {
     width: 10px;
     padding-top: 10px;
     border-radius: 50%;
@@ -44,7 +44,7 @@
 
 #adelante{
     width: 30px;
-    height: 30px; 
+    height: 30px;
     float: right;
     margin-right: 5px;
     border-radius: 100%;
