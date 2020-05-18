@@ -7,8 +7,10 @@ function animar_carrusel(milliseconds_carrusel, id_div){
     var cantImagenes = 0;
     var intervaloImagen = setInterval(cambiarImagenAdelante, milliseconds_carrusel);
     var intervaloBarra = setInterval(animarBarra,0);
-    var ancho;
-    var alto;
+    var ancho_div;
+    var alto_div;
+    var ancho_actual;
+    var alto_actual;
 
     function animarBarra(){
 	    if (indice == 0) {
@@ -110,17 +112,25 @@ function animar_carrusel(milliseconds_carrusel, id_div){
     }
 
 
-    function OcultarDemasImagenes(){ // Arreglar cambio de valores de altura y ancho
+    function OcultarDemasImagenes(){
         $("#"+id_div).find('img').each(function(index) {
             
         	if(index == 0){
-        		ancho=$(this).width();
-    			alto=$(this).height();
+        		ancho_div=$(this).width();
+    			alto_div=$(this).height();
         	}
+            else{
+                alto_actual=$(this).height();
+                ancho_actual=$(this).width();
+                $(this).css('height', alto_div+'px');
+                $(this).css('width', (alto_div*ancho_actual/alto_actual)+'px');
+                if((alto_div*ancho_actual/alto_actual) > ancho_div){
+                    $(this).css('width', ancho_div+'px');
+                    $(this).css('height', (ancho_div*alto_actual/ancho_actual)+'px');
+                }
 
-        	$(this).css('width', ancho+'px');
-        	$(this).css('height', alto+'px');
-
+            }
+        	
             if(index!=0){
                 $(this).css("display","none");
             }
@@ -145,13 +155,12 @@ function animar_carrusel(milliseconds_carrusel, id_div){
         });    
         barraDeCirculosYBotones = barraDeCirculosYBotones + "</div>" + "<button id='adelante'>></button>"+"</div>";
         var barraDeProgreso="<div id='miProgreso'><div id='miBarra'></div></div>";
-        var NombreCarrusel=document.getElementById(id_div);
-        NombreCarrusel.innerHTML += barraDeCirculosYBotones; //probar de vuelta con appendto
-        NombreCarrusel.innerHTML += barraDeProgreso;    
+        $(barraDeCirculosYBotones).appendTo("#"+id_div);
+        $(barraDeProgreso).appendTo("#"+id_div);
     }
     
     OcultarDemasImagenes();
-    $("#"+id_div).css({"margin":"4% auto","width":ancho,"display":"block"});
+    $("#"+id_div).css({"margin":"4% auto","width":ancho_div,"display":"block", "text-align":"center"});
     CreacionBarraCirculosYFlechas();
     $("#atras").click(cambiarImagenAtras);
     $("#adelante").click(cambiarImagenAdelante);
