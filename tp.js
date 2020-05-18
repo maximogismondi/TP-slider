@@ -110,7 +110,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
     }
 
 
-    function OcultarDemasImagenes(){
+    function OcultarDemasImagenes(){ // Arreglar cambio de valores de altura y ancho
         $("#"+id_div).find('img').each(function(index) {
             
         	if(index == 0){
@@ -146,7 +146,7 @@ function animar_carrusel(milliseconds_carrusel, id_div){
         barraDeCirculosYBotones = barraDeCirculosYBotones + "</div>" + "<button id='adelante'>></button>"+"</div>";
         var barraDeProgreso="<div id='miProgreso'><div id='miBarra'></div></div>";
         var NombreCarrusel=document.getElementById(id_div);
-        NombreCarrusel.innerHTML += barraDeCirculosYBotones;
+        NombreCarrusel.innerHTML += barraDeCirculosYBotones; //probar de vuelta con appendto
         NombreCarrusel.innerHTML += barraDeProgreso;    
     }
     
