@@ -1,4 +1,4 @@
-# Mejor slider 2020
+# Slider Imagenes 2020
 _Damian Blum y Maximo Gismondi_
 ## ¿Cómo implementar el slider? 
 * En la carpeta donde se encuentre su proyecto deben de tener la ultima version de Jquery 
